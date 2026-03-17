@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Aturuang/configuration/api_configuration.dart';
 import 'package:Aturuang/models/laporan_model.dart';
-import 'package:Aturuang/configuration/api_configuration.dart';
-import 'package:Aturuang/models/laporan_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:intl/intl.dart';

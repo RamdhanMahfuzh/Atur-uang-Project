@@ -159,7 +159,7 @@ class _CountingScreenState extends State<CountingScreen> {
                       decoration: kTextFieldDecoration.copyWith(
                         hintText: 'Financial Category',
                       ),
-                      value: selectedFinancialCategory,
+                      initialValue: selectedFinancialCategory,
                       validator: (value) =>
                           value == null ? 'Select a financial category!' : null,
                       items: [

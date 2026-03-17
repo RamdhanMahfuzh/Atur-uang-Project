@@ -1,7 +1,6 @@
 import 'package:Aturuang/configuration/theme_config.dart';
 import 'package:Aturuang/pages/home.dart';
 import 'package:Aturuang/pages/profile.dart';
-import 'package:Aturuang/pages/reporting.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBarDemo extends StatefulWidget {

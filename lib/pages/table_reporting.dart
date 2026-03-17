@@ -96,10 +96,10 @@ class _ReportingTableState extends State<ReportingTable> {
             children: <Widget>[
               SingleChildScrollView(
                 child: DataTable(
-                  headingRowColor: MaterialStateColor.resolveWith(
+                  headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Color.fromARGB(255, 20, 165, 182)),
                   dataRowColor:
-                      MaterialStateColor.resolveWith((states) => Colors.white),
+                      WidgetStateColor.resolveWith((states) => Colors.white),
                   columns: [
                     DataColumn(
                       label: Text('Date',
