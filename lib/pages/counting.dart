@@ -1,5 +1,4 @@
 import 'package:Aturuang/utils/restapi.dart';
-import 'package:Aturuang/utils/restapi.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:Aturuang/configuration/api_configuration.dart';
