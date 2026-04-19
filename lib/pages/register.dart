@@ -1,14 +1,14 @@
-import 'package:Aturuang/pages/login.dart';
-import 'package:Aturuang/configuration/api_configuration.dart';
-import 'package:Aturuang/configuration/theme_config.dart';
-import 'package:Aturuang/utils/restapi.dart';
-import 'package:Aturuang/configuration/roundedbutton.dart';
-import 'package:Aturuang/utils/validator.dart';
+import 'package:aturuang/pages/login.dart';
+import 'package:aturuang/configuration/api_configuration.dart';
+import 'package:aturuang/configuration/theme_config.dart';
+import 'package:aturuang/utils/restapi.dart';
+import 'package:aturuang/configuration/roundedbutton.dart';
+import 'package:aturuang/utils/validator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:Aturuang/utils/fire_auth.dart';
+import 'package:aturuang/utils/fire_auth.dart';
 
 const kTextFieldDecoration = InputDecoration(
   filled: true,

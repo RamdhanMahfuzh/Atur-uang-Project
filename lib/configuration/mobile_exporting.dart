@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:Aturuang/pages/table_reporting.dart';
+import 'package:aturuang/pages/table_reporting.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -22,7 +22,7 @@ class ExportingPDF {
       List<Report> reports) async {
     try {
       // buat user milih directory
-      final directory = await FilePicker.platform.getDirectoryPath();
+      final directory = await FilePicker.getDirectoryPath();
       // ngecek file di directory ada
       if (directory != null) {
         //kalo ada ngambil report ke directory

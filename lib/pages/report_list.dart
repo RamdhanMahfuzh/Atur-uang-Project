@@ -1,6 +1,6 @@
-import 'package:Aturuang/models/laporan_model.dart';
-import 'package:Aturuang/pages/table_reporting.dart';
-import 'package:Aturuang/utils/restapi.dart';
+import 'package:aturuang/models/laporan_model.dart';
+import 'package:aturuang/pages/table_reporting.dart';
+import 'package:aturuang/utils/restapi.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

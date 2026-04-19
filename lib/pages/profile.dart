@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:Aturuang/configuration/api_configuration.dart';
-import 'package:Aturuang/models/laporan_model.dart';
+import 'package:aturuang/configuration/api_configuration.dart';
+import 'package:aturuang/models/laporan_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:intl/intl.dart';
@@ -94,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future pickImage(String id) async {
     try {
-      var picked = await FilePicker.platform.pickFiles(withData: true);
+      var picked = await FilePicker.pickFiles(withData: true);
 
       if (picked != null) {
         var response = await ds.upload(token, project,

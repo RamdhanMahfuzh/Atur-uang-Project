@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../configuration/theme_config.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:Aturuang/configuration/rounded button.dart';
+import 'package:aturuang/configuration/rounded button.dart';
 
 class onBoardingPage extends StatelessWidget {
   const onBoardingPage({Key? key}) : super(key: key);

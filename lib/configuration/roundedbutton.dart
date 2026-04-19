@@ -1,4 +1,4 @@
-import 'package:Aturuang/configuration/theme_config.dart';
+import 'package:aturuang/configuration/theme_config.dart';
 import 'package:flutter/material.dart';
 
 class ToggleButton extends StatefulWidget {

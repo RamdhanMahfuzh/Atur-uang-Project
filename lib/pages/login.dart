@@ -1,7 +1,7 @@
-import 'package:Aturuang/configuration/theme_config.dart';
-import 'package:Aturuang/utils/fire_auth.dart';
-import 'package:Aturuang/configuration/roundedbutton.dart';
-import 'package:Aturuang/utils/validator.dart';
+import 'package:aturuang/configuration/theme_config.dart';
+import 'package:aturuang/utils/fire_auth.dart';
+import 'package:aturuang/configuration/roundedbutton.dart';
+import 'package:aturuang/utils/validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

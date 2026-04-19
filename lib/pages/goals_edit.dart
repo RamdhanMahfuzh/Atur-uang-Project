@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:Aturuang/configuration/api_configuration.dart';
-import 'package:Aturuang/configuration/roundedbutton.dart';
-import 'package:Aturuang/configuration/theme_config.dart';
-import 'package:Aturuang/models/nabung_model.dart';
-import 'package:Aturuang/utils/restapi.dart';
+import 'package:aturuang/configuration/api_configuration.dart';
+import 'package:aturuang/configuration/roundedbutton.dart';
+import 'package:aturuang/configuration/theme_config.dart';
+import 'package:aturuang/models/nabung_model.dart';
+import 'package:aturuang/utils/restapi.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class _GoalsDetail extends State<GoalsEdit> {
 
   Future pickImage() async {
     try {
-      picked = await FilePicker.platform.pickFiles(withData: true);
+      picked = await FilePicker.pickFiles(withData: true);
 
       if (picked != null && picked!.files.isNotEmpty) {
         setState(() {
