@@ -8,33 +8,39 @@ class FireAuth {
     required String password,
   }) async {
     FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
 
     try {
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
 
-      user = userCredential.user;
-      await user!.updateProfile(displayName: name);
+      User? user = userCredential.user;
+
+      await user!.updateProfile(
+        displayName: name,
+      );
+
       await user.reload();
-      user = auth.currentUser;
+
+      return auth.currentUser;
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak==password') {
-        if (kDebugMode) {
-          print('The Password provided is too weak');
-        }
-      } else if (e.code == 'email-already-in-use') {
-        if (kDebugMode) {
-          print('The Account already exists for that email');
-        }
+      if (kDebugMode) {
+        print(e.code);
+        print(e.message);
       }
+
+      throw FirebaseAuthException(
+        code: e.code,
+        message: e.message,
+      );
     } catch (e) {
       if (kDebugMode) {
         print(e);
       }
-    }
 
-    return user;
+      rethrow;
+    }
   }
 
   static Future<User?> signInUsingEmailPassword({

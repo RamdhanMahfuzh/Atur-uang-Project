@@ -187,27 +187,43 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                       _isProcessing = true;
                                     });
 
-                                    User? user = await FireAuth
-                                        .registerUsingEmailPassword(
-                                      name: _usernameTextController.text,
-                                      email: _emailTextController.text,
-                                      password: _passwordTextController.text,
-                                    );
-                                    User? currentUser =
-                                        FirebaseAuth.instance.currentUser;
-                                    await ds.insertUser(
-                                        appid, currentUser!.uid, '-');
-                                    setState(() {
-                                      _isProcessing = false;
-                                    });
-
-                                    if (user != null) {
-                                      Navigator.of(context).pushAndRemoveUntil(
-                                        MaterialPageRoute(
-                                          builder: (context) => LoginScreen(),
-                                        ),
-                                        ModalRoute.withName('/'),
+                                    try {
+                                      User? user = await FireAuth
+                                          .registerUsingEmailPassword(
+                                        name: _usernameTextController.text,
+                                        email: _emailTextController.text,
+                                        password: _passwordTextController.text,
                                       );
+
+                                      if (user != null) {
+                                        User? currentUser =
+                                            FirebaseAuth.instance.currentUser;
+
+                                        await ds.insertUser(
+                                            appid, currentUser!.uid, '-');
+
+                                        Navigator.of(context)
+                                            .pushAndRemoveUntil(
+                                          MaterialPageRoute(
+                                            builder: (context) => LoginScreen(),
+                                          ),
+                                          ModalRoute.withName('/'),
+                                        );
+                                      }
+                                    } on FirebaseAuthException catch (e) {
+                                      if (e.code == 'email-already-in-use') {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          const SnackBar(
+                                            content: Text(
+                                                "Email Already in Use, Please Use Another Email"),
+                                          ),
+                                        );
+                                      }
+                                    } finally {
+                                      setState(() {
+                                        _isProcessing = false;
+                                      });
                                     }
                                   }
                                 },

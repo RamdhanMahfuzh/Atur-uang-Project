@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: FutureBuilder<dynamic>(
@@ -179,13 +179,16 @@ class _HomePageState extends State<HomePage> {
                             ),
                             // Heading Area
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 29),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: width * 0.07,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     "Welcome, ${currentUser!.displayName}",
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontFamily: 'Poppins-SemiBold',
@@ -203,8 +206,14 @@ class _HomePageState extends State<HomePage> {
                                         children: [
                                           Image.asset('assets/moneycard.png'),
                                           Positioned(
-                                              top: 90,
-                                              left: 27,
+                                              top: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.18,
+                                              left: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.06,
                                               child: Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
@@ -234,111 +243,136 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   // Menu APPS Area
                                   Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 30, right: 30, top: 30),
+                                    padding: const EdgeInsets.only(
+                                      left: 30,
+                                      right: 30,
+                                      top: 30,
+                                    ),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                          MainAxisAlignment.spaceAround,
                                       children: [
-                                        Column(
-                                          children: [
-                                            GestureDetector(
-                                              onTap: () {
-                                                Navigator.pushNamed(
-                                                    context, 'goals_menu');
-                                              },
-                                              child: Column(
-                                                children: [
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8),
-                                                    child: Container(
-                                                      color: primaryColor,
-                                                      padding:
-                                                          EdgeInsets.all(8),
-                                                      child: Image.asset(
-                                                        "assets/IconGoals.png",
-                                                        height: 35,
-                                                        width: 35,
+                                        // GOALS
+                                        Expanded(
+                                          child: Column(
+                                            children: [
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator.pushNamed(
+                                                    context,
+                                                    'goals_menu',
+                                                  );
+                                                },
+                                                child: Column(
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                      child: Container(
+                                                        color: primaryColor,
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(8),
+                                                        child: Image.asset(
+                                                          "assets/IconGoals.png",
+                                                          height: 35,
+                                                          width: 35,
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  SizedBox(height: 5),
-                                                  Text("Goals"),
-                                                ],
+                                                    const SizedBox(height: 5),
+                                                    const Text(
+                                                      "Goals",
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                        const SizedBox(width: 40),
-                                        Column(
-                                          children: [
-                                            GestureDetector(
-                                              // Navigation to financial counting
-                                              onTap: () {
-                                                Navigator
-                                                    .pushNamedAndRemoveUntil(
-                                                        context,
-                                                        'counting',
-                                                        (route) => false);
-                                              },
-                                              child: Column(
-                                                children: [
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8),
-                                                    child: Container(
-                                                      color: primaryColor,
-                                                      padding:
-                                                          EdgeInsets.all(8),
-                                                      child: Image.asset(
-                                                        "assets/IconCounting.png",
-                                                        height: 35,
-                                                        width: 35,
+
+                                        // COUNTING
+                                        Expanded(
+                                          child: Column(
+                                            children: [
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator
+                                                      .pushNamedAndRemoveUntil(
+                                                    context,
+                                                    'counting',
+                                                    (route) => false,
+                                                  );
+                                                },
+                                                child: Column(
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                      child: Container(
+                                                        color: primaryColor,
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(8),
+                                                        child: Image.asset(
+                                                          "assets/IconCounting.png",
+                                                          height: 35,
+                                                          width: 35,
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  SizedBox(height: 5),
-                                                  Text("Counting"),
-                                                ],
+                                                    const SizedBox(height: 5),
+                                                    const Text(
+                                                      "Counting",
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                        const SizedBox(width: 40),
-                                        Column(
-                                          children: [
-                                            GestureDetector(
-                                              // Navigation to reporting
-                                              onTap: () {
-                                                Navigator.pushReplacementNamed(
-                                                    context, 'reporting');
-                                              },
-                                              child: Column(
-                                                children: [
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8),
-                                                    child: Container(
-                                                      color: primaryColor,
-                                                      padding:
-                                                          EdgeInsets.all(8),
-                                                      child: Image.asset(
-                                                        "assets/IconReporting.png",
-                                                        height: 35,
-                                                        width: 35,
+
+                                        // REPORTING
+                                        Expanded(
+                                          child: Column(
+                                            children: [
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator
+                                                      .pushReplacementNamed(
+                                                    context,
+                                                    'reporting',
+                                                  );
+                                                },
+                                                child: Column(
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                      child: Container(
+                                                        color: primaryColor,
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(8),
+                                                        child: Image.asset(
+                                                          "assets/IconReporting.png",
+                                                          height: 35,
+                                                          width: 35,
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  SizedBox(height: 5),
-                                                  Text("Reporting"),
-                                                ],
+                                                    const SizedBox(height: 5),
+                                                    const Text(
+                                                      "Reporting",
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ],
                                     ),

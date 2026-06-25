@@ -131,6 +131,7 @@ class ListGoals extends StatelessWidget {
         ),
         child: ListTile(
           dense: true,
+          contentPadding: EdgeInsets.symmetric(horizontal: 12),
           leading: Container(
             width: 57,
             height: 39,
@@ -145,6 +146,8 @@ class ListGoals extends StatelessWidget {
           tileColor: primaryColor,
           title: Text(
             goals,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
@@ -157,6 +160,8 @@ class ListGoals extends StatelessWidget {
             children: [
               Text(
                 "Collected : ${formatCurrency(int.parse(collected))}",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w100,
@@ -166,6 +171,8 @@ class ListGoals extends StatelessWidget {
               ),
               Text(
                 "Target : ${formatCurrency(int.parse(target))}",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w100,
